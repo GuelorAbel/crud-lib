@@ -13,11 +13,13 @@ const db = mysql.createConnection({
     database: "librairie"
 })
 
-// les middlewares (ils permettent d'insérer les données du client dans la base de données)
+// les middlewares(express et cors)
+// il retour les données au format json vers le client
 app.use(express.json());
+// il permette d'insérer les données du client vers le backend(la base de données) 
 app.use(cors());
 
-// obtenir les données  la page d'accueil 
+// la route qui permet d'obtenir les données  la page d'accueil 
 app.get("/", (req, res) => {
     // la requête sql
     const sql = "SELECT * FROM livres ORDER BY id DESC LIMIT 4";
@@ -28,7 +30,7 @@ app.get("/", (req, res) => {
     })
 })
 
-// obtention des données sur la page boutique
+// la route qui obtentient les données pour la page boutique
 app.get("/boutique", (req, res) => {
     // la requête sql
     const sql = "SELECT * FROM livres";
@@ -39,7 +41,7 @@ app.get("/boutique", (req, res) => {
     })
 })
 
-// insertion des données dans la bd
+// la route qui permet d'inserer les données dans la bd via un formulaire
 app.post("/ajoutLivre", (req, res) => {
    // la requête sql
    const sql = "INSERT INTO livres (`title`, `resume`, `price`,`cover`) VALUES (?)";
