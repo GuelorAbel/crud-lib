@@ -13,7 +13,7 @@ export default function Favorite() {
     useEffect(() => {
         const fetchLastBook = async () => {
             try{
-                const res = await axios.get("http://localhost:8800")
+                const res = await axios.get("http://localhost:5000")
                 setLivres(res.data);
             }catch{
                 console.log(err);

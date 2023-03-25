@@ -21,7 +21,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/boutique' element={<Boutique />} />
-        <Route path='/AjoutLivre' element={<AjoutLivre />} />
+        <Route path='/creer' element={<AjoutLivre />} />
       </Routes>
 
       <Footer />

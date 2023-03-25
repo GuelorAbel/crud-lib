@@ -5,7 +5,7 @@ import Logo from '../assets/logo.png'
 
 export default function Header() {
   return (
-    <header className="sticky top-0 left-0 py-6 text-gray-800">
+    <header className="sticky top-0 left-0 py-6 text-gray-800 z-10">
         <Container>
             <nav className="flex justify-between items-center">
                 <div>
@@ -14,7 +14,7 @@ export default function Header() {
                 <ul>
                     <Link to="/" className="ml-4">Accueil</Link>
                     <Link to="/boutique" className="ml-4">Boutique</Link>
-                    <Link to="/ajoutLivre" className="ml-4">Créer un livre</Link>
+                    <Link to="/creer" className="ml-4">Créer un livre</Link>
                 </ul>
             </nav>
         </Container>

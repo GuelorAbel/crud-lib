@@ -1,0 +1,27 @@
+<div className="flex items-center justify-between px-4">
+    {/* Lien vers la page de mise à jour  */}
+    <Link className="bg-blue-600 text-white p-2"> <RiEdit2Fill /> </Link>
+    {/* lien vers la page de suppression */}
+    <Link className="bg-red-600 text-white p-2"> <RiDeleteBin5Fill /> </Link>
+</div>
+
+<form className="mb-6">
+
+    <MdTitle className="text-center mt-6 mb-3">Ajouter un nouveau livre</MdTitle>
+
+    <input type="text" placeholder="Titre du livre" className="input w-[80%] mt-4 outline-yellow-800 
+    border border-gray-200" name="title" onChange={handleChange}/>
+
+    <input type="text" placeholder="Résumé du livre" className="input w-[80%] mt-4 outline-yellow-800 
+    border border-gray-200" name="resume" onChange={handleChange}/>
+
+    <input type="number" placeholder="Prix" className="input w-[80%] mt-4 outline-yellow-800 border 
+    border-gray-200" name="price" onChange={handleChange}/>
+
+    <input type="text" placeholder="Image du livre" className="input w-[80%] mt-4 outline-yellow-800 
+    border border-gray-200" name="cover" onChange={handleChange}/>
+
+    {/* bouton de soumission */}
+    <Button type="submit" className="ml-4 w-[18%]" onClick={handleClick}>Enregistrer</Button>
+
+</form>

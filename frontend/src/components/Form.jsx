@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Form() {
     // états
-    const [livres, setLivres] = useState({
+    const [livre, setLivre] = useState({
         title: "",
         resume: "",
         price: null,
@@ -19,15 +19,16 @@ export default function Form() {
 
     // comportements
     const handleChange = (e) => {
-        setLivres((prev) => ({...prev, [e.target.name]: e.target.value }));
+        setLivre(prev => ({...prev, [e.target.name]: e.target.value}));
     };
+    console.log(livre);
     // soumission du formulaire au click
-    const handleClick = async e =>{
+    const handleClick = async (e) =>{
         e.preventDefault()
         try{
-            await axios.post("http://localhost:8800/ajoutLivre", livres)
+            await axios.post("http://localhost:5000/creer", livre)
             // redirection vers la boutique
-            navigate("/boutique")
+            navigate("/")
             
         }catch(err) {
             console.log(err);
@@ -40,24 +41,29 @@ export default function Form() {
             <Container>
                 {/* formulaire d'ajout d'un livre dans la BD */}
                 <form className="mb-6">
+                    <MdTitle className="mb-9"> Ajouter un livre </MdTitle>
+                    <div>
+                        <input 
+                            type="text" className="inputForm" placeholder="Entrer le titre du livre" name="title"
+                            onChange={handleChange} 
+                        />
+                        <input 
+                            type="text" className="inputForm" placeholder="Entrer la description du livre" name="resume"
+                            onChange={handleChange} 
+                        />
+                        <input 
+                            type="number" className="inputForm" placeholder="Entrer le prix du livre" name="price"
+                            onChange={handleChange} 
+                        />
+                        <input 
+                            type="text" className="inputForm" placeholder="Ajouter la cuverture du livre" name="cover"
+                            onChange={handleChange} 
+                        />
 
-                    <MdTitle className="text-center mt-6 mb-3">Ajouter un nouveau livre</MdTitle>
+                        {/* bouton de soumission */}
+                        <Button className="ml-3" type="submit" onClick={handleClick}> Enregistrer </Button>
 
-                    <input type="text" placeholder="Titre du livre" className="input w-[80%] mt-4 outline-yellow-800 
-                    border border-gray-200" name="title" onChange={handleChange}/>
-
-                    <input type="text" placeholder="Résumé du livre" className="input w-[80%] mt-4 outline-yellow-800 
-                    border border-gray-200" name="resume" onChange={handleChange}/>
-
-                    <input type="number" placeholder="Prix" className="input w-[80%] mt-4 outline-yellow-800 border 
-                    border-gray-200" name="price" onChange={handleChange}/>
-
-                    <input type="text" placeholder="Image du livre" className="input w-[80%] mt-4 outline-yellow-800 
-                    border border-gray-200" name="cover" onChange={handleChange}/>
-
-                    {/* bouton de soumission */}
-                    <Button className="ml-4 w-[18%]" onClick={handleClick}>Enregistrer</Button>
-
+                    </div>
                 </form>
                 
             </Container>

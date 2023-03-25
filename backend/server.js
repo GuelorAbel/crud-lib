@@ -10,7 +10,7 @@ const db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "librairie"
+    database: "librairie",
 })
 
 // les middlewares(express et cors)
@@ -19,7 +19,7 @@ app.use(express.json());
 // il permette d'insérer les données du client vers le backend(la base de données) 
 app.use(cors());
 
-// la route qui permet d'obtenir les données  la page d'accueil 
+// la route qui permet d'obtenir les 4 derniers livres(Page d'accueil) 
 app.get("/", (req, res) => {
     // la requête sql
     const sql = "SELECT * FROM livres ORDER BY id DESC LIMIT 4";
@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
     })
 })
 
-// la route qui obtentient les données pour la page boutique
+// la route qui affiche tout les livres(page boutique)
 app.get("/boutique", (req, res) => {
     // la requête sql
     const sql = "SELECT * FROM livres";
@@ -41,8 +41,8 @@ app.get("/boutique", (req, res) => {
     })
 })
 
-// la route qui permet d'inserer les données dans la bd via un formulaire
-app.post("/ajoutLivre", (req, res) => {
+// la route qui permet d'inserer un nouveau livre(pade d'ajout) dans la BD
+app.post("/creer", (req, res) => {
    // la requête sql
    const sql = "INSERT INTO livres (`title`, `resume`, `price`,`cover`) VALUES (?)";
    const values = [
@@ -54,11 +54,11 @@ app.post("/ajoutLivre", (req, res) => {
    db.query(sql, [values], (err, data) => {
         // en cas d'erreur affiche l'erreur / sinon, affiche les données
         if(err) return res.json(err);
-        return res.status(200).json("Les données ont été ajoutées avec succès");
+        return res.status(200).json("Le livre a été ajouté avec succès!");
    })
 })
 
 // Lancement du serveur au 8800
-app.listen(8800, () => {
-    console.log("La connexion au serveur est établie au 8800");
+app.listen(5000, () => {
+    console.log("La connexion au serveur est établie au 5000");
 })

@@ -17,3 +17,8 @@
 main {
   flex: 1 0 auto;
 }
+
+/* input du formulaire */
+.inputForm {
+  @apply w-[80%] mt-4 outline-yellow-800 border border-gray-200 px-1 py-2;
+}
