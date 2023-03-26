@@ -59,6 +59,13 @@ app.post("/creer", (req, res) => {
    })
 })
 
+// la route qui permet de modifier un livre  partir de son ID
+// app.push("/modifier/:id", (req, res) => {
+
+// })
+
+// la route qui permet de supprimer définitivement un livre
+
 // Lancement du serveur au 8800
 app.listen(5000, () => {
     console.log("La connexion au serveur est établie au 5000");

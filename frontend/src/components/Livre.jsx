@@ -1,15 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Button from '../element/Button'
 import Paragraph from '../element/Paragraph'
 // les icones
 // import { RiEdit2Fill, RiDeleteBin5Fill } from 'react-icons/ri'
 
-export default function Livre({title, resume, cover, price}) {
+export default function Livre({title, resume, cover, price, children}) {
   return (
     
         <Link>
-            {cover && <figure><img src={cover} alt="" className="w-full h-72 bg-yellow-100" /></figure>}
+            {cover && <figure><img src={cover} alt="" className="w-full h-60 bg-yellow-100" /></figure>}
             <div className="card-body py-4 px-2">
                 <Link to="/" className="card-title">
                     {title}
@@ -19,6 +18,9 @@ export default function Livre({title, resume, cover, price}) {
                     <Paragraph> {resume} </Paragraph>
                 </div>
                 {/* ajout d'un enfant au besoin */}
+                <div>
+                    { children }
+                </div>
                 
             </div>
         </Link>
