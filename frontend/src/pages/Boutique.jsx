@@ -1,5 +1,6 @@
 import React from 'react'
-import Container from '../element/Container'
+import HeroShop from '../components/HeroShop'
+import Shop from '../components/Shop'
 
 export default function Boutique() {
     // états / données
@@ -7,9 +8,8 @@ export default function Boutique() {
     // rendu navigateur
     return (
         <main>
-            <Container>
-                Boutique
-            </Container>
+            <HeroShop />
+            <Shop />
         </main>
     )
 }

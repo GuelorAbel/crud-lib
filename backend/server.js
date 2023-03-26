@@ -11,6 +11,7 @@ const db = mysql.createConnection({
     user: "root",
     password: "",
     database: "librairie",
+    port: 3306
 })
 
 // les middlewares(express et cors)

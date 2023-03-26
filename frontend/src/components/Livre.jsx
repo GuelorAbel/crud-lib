@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Button from '../element/Button'
 import Paragraph from '../element/Paragraph'
 // les icones
-import { RiEdit2Fill, RiDeleteBin5Fill } from 'react-icons/ri'
+// import { RiEdit2Fill, RiDeleteBin5Fill } from 'react-icons/ri'
 
 export default function Livre({title, resume, cover, price}) {
   return (
@@ -18,9 +18,7 @@ export default function Livre({title, resume, cover, price}) {
                 <div className="card-body py-4 text-center">
                     <Paragraph> {resume} </Paragraph>
                 </div>
-                <Button >
-                    <Link to="/creer"> Ajouter un livre</Link>
-                </Button>
+                {/* ajout d'un enfant au besoin */}
                 
             </div>
         </Link>

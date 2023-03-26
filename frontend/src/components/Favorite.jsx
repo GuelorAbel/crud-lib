@@ -21,6 +21,7 @@ export default function Favorite() {
         }
         fetchLastBook()
     }, [])
+    
     // rendu navigateur
     return (
         <section>
@@ -28,12 +29,13 @@ export default function Favorite() {
                 <MdTitle className="text-right py-6">Les derniers livres</MdTitle>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 py-12">
                     {livres.map(livre =>(
-                        <div className="card w-full mx-auto shadow-md" key={livre.id}>
+                        <div className="card w-full mx-auto shadow-sm hover:shadow-lg transition duration-300" key={livre.id}>
                         <Livre 
                             title={livre.title} 
                             resume={livre.resume} 
                             cover={livre.cover}
-                            price={livre.price} 
+                            price={livre.price}
+                            
                         />
 
                         </div>
