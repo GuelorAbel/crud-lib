@@ -7,6 +7,8 @@ import AjoutLivre from './pages/AjoutLivre'
 // les composants
 import Footer from './components/Footer'
 import Header from './components/Header'
+import Livre from './pages/Livre'
+import Update from './pages/Update'
 
 
 
@@ -22,6 +24,8 @@ export default function App() {
         <Route path='/' element={<Home />} />
         <Route path='/boutique' element={<Boutique />} />
         <Route path='/creer' element={<AjoutLivre />} />
+        <Route path='/livre' element={ <Livre/> } />
+        <Route path='/livre/:id' element={ <Update/> } />
       </Routes>
 
       <Footer />

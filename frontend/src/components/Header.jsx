@@ -15,6 +15,7 @@ export default function Header() {
                     <Link to="/" className="ml-4">Accueil</Link>
                     <Link to="/boutique" className="ml-4">Boutique</Link>
                     <Link to="/creer" className="ml-4">Créer un livre</Link>
+                    <Link to="/livre" className="ml-4">Tableau de bord</Link>
                 </ul>
             </nav>
         </Container>

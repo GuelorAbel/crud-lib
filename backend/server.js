@@ -42,6 +42,17 @@ app.get("/boutique", (req, res) => {
     })
 })
 
+app.get("/livre", (req, res) => {
+    // la requête sql
+    const sql = "SELECT `id`, `title` FROM livres";
+    db.query(sql, (err, data) =>{
+        // en cas d'erreur affiche l'erreur / sinon, affiche les données
+        if(err) return res.json(err);
+        return res.status(200).json(data);
+    })
+})
+
+
 // la route qui permet d'inserer un nouveau livre(pade d'ajout) dans la BD
 app.post("/creer", (req, res) => {
    // la requête sql
@@ -60,25 +71,25 @@ app.post("/creer", (req, res) => {
 })
 
 // la route qui permet de modifier un livre  partir de son ID
-app.put("/boutique/:id", (res, req) => {
-    const bookId = req.params.id;
-    // la requête sql
-    const sql = "UPDATE livres SET `title` = ?, `resume` = ?, `price` = ?, `cover` = ? WHERE id = ?";
-    const values = [
-        req.body.title,
-        req.body.resume,
-        req.body.price,
-        req.body.cover,
-       ]
-    db.query(sql, [...values, bookId], (err, data) => {
-        // en cas d'erreur affiche l'erreur / sinon, affiche les données
-        if(err) return res.json(err);
-        return res.status(200).json("Le livre a été mis à jour avec succès!");
-    })
-})
+// app.put("/livre/:id", (res, req) => {
+//     const bookId = req.params.id;
+//     // la requête sql
+//     const sql = "UPDATE livres SET `title` = ?, `resume` = ?, `price` = ?, `cover` = ? WHERE id = ?";
+//     const values = [
+//         req.body.title,
+//         req.body.resume,
+//         req.body.price,
+//         req.body.cover,
+//        ]
+//     db.query(sql, [...values, bookId], (err, data) => {
+//         // en cas d'erreur affiche l'erreur / sinon, affiche les données
+//         if(err) return res.json(err);
+//         return res.status(200).json("Le livre a été mis à jour avec succès!");
+//     })
+// })
 
-// la route qui permet de supprimer définitivement un livre
-app.delete("/boutique/:id", (res, req) => {
+// // la route qui permet de supprimer définitivement un livre
+app.delete("/livre/:id", (res, req) => {
     const bookId = req.params.id;
     // la requête sql
     const sql = "DELETE FROM livres WHERE id = ?";

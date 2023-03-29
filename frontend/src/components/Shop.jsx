@@ -3,7 +3,6 @@ import Container from '../element/Container'
 import MdTitle from '../element/MdTitle'
 import Livre from './Livre'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 
 export default function Shop() {
     // états / données

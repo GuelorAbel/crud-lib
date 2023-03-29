@@ -8,7 +8,7 @@ export default function Livre({title, resume, cover, price, children}) {
   return (
     
         <Link>
-            {cover && <figure><img src={cover} alt="" className="w-full h-60 bg-yellow-100" /></figure>}
+            {cover && <figure><img src={cover} alt="" className="w-full h-56 bg-yellow-100" /></figure>}
             <div className="card-body py-4 px-2">
                 <Link to="/" className="card-title">
                     {title}
